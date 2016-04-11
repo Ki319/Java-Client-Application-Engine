@@ -49,21 +49,25 @@ public class ClientNetwork extends Network
 	{
 		try
 		{
+			System.out.println("this3");
 			KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 			keyGen.init(aesBitLength);
 			SecretKey secretKey = keyGen.generateKey();
 			
+			System.out.println("this4");
 			encrypt = Cipher.getInstance("AES");
 			encrypt.init(Cipher.ENCRYPT_MODE, secretKey);
 			decrypt = Cipher.getInstance("AES");
 			decrypt.init(Cipher.DECRYPT_MODE, secretKey);
 			
+			System.out.println("this5");
 			RSAPublicKey publicKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(rsaPublicKey));
 			Cipher rsaCipher = Cipher.getInstance("RSA");
 			rsaCipher.init(Cipher.ENCRYPT_MODE, publicKey);
 			
+			System.out.println("this6");
 			sendPacket(new PacketAES(rsaCipher, secretKey));
-			
+			System.out.println("this7");
 			cipherInitialized = true;
 		}
 		catch (GeneralSecurityException e) 

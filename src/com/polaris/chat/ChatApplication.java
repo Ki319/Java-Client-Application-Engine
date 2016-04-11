@@ -15,7 +15,7 @@ public class ChatApplication extends Application
 	
 	static
 	{
-		Packet.addPacket(PacketContent.class);
+		Packet.addPacket(PacketLogin.class);
 		Packet.sortPackets();
 	}
 

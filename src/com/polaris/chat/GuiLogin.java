@@ -138,7 +138,6 @@ public class GuiLogin extends GuiScreen
 						ClientNetwork network = ((Application) application).getNetwork();
 						network.connect("localhost", 8888);
 						network.validate(true);
-						network.sendSecurePacket(new PacketContent("Hello this is a test"));
 						network.sendSecurePacket(new PacketLogin(username.getText(), password.getText()));
 						loadingPhase = 2;
 					} 
